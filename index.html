@@ -1,0 +1,235 @@
+import google.ds_python_interpreter
+
+html_content = """
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlilik Politikası | Mindful Flow</title>
+    <style>
+        :root {
+            --primary-color: #6366f1;
+            --accent-color: #a855f7;
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Arka plan görsel efekti */
+        .blob {
+            position: fixed;
+            top: -10%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            filter: blur(80px);
+            opacity: 0.15;
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 60px auto;
+            padding: 0 24px;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .logo-placeholder {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+            margin: 0 auto 20px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.3);
+            font-size: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            background: linear-gradient(to right, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .last-updated {
+            color: var(--text-dim);
+            font-size: 0.9rem;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 32px;
+            border-radius: 24px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+            margin-bottom: 30px;
+        }
+
+        section {
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        p {
+            color: var(--text-dim);
+            margin-bottom: 16px;
+        }
+
+        .highlight-box {
+            background: rgba(99, 102, 241, 0.1);
+            border-left: 4px solid var(--primary-color);
+            padding: 16px;
+            border-radius: 8px;
+            margin: 20px 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        li {
+            position: relative;
+            padding-left: 24px;
+            margin-bottom: 12px;
+            color: var(--text-dim);
+        }
+
+        li::before {
+            content: "→";
+            position: absolute;
+            left: 0;
+            color: var(--accent-color);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 40px;
+        }
+
+        .btn-contact {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 12px 24px;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+
+        .btn-contact:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
+        }
+
+        @media (max-width: 640px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 24px; }
+        }
+    </style>
+</head>
+<body>
+    <div class="blob"></div>
+    <div class="container">
+        <header>
+            <div class="logo-placeholder">✨</div>
+            <h1>Mindful Flow</h1>
+            <p class="last-updated">Son Güncelleme: 14 Mayıs 2024</p>
+        </header>
+
+        <main class="card">
+            <section>
+                <h2>Giriş</h2>
+                <p><strong>Mindful Flow</strong> (Dijital Organizma) olarak gizliliğinize büyük önem veriyoruz. Bu politika, uygulamamızı kullanırken hangi verilerin işlendiğini ve gizliliğinizin nasıl korunduğunu açıklar.</p>
+                <p>Uygulama, kullanıcı etkileşimli sıvı fiziği ve parçacık simülasyonları sunan bir görsel sanat ve canlı duvar kağıdı platformudur.</p>
+            </section>
+
+            <section>
+                <h2>Kullanılan İzinler ve Veri Toplama</h2>
+                
+                <div class="highlight-box">
+                    <strong>Ses Erişimi (RECORD_AUDIO):</strong>
+                    <p style="margin-top: 8px;">Uygulama, görsel simülasyonların (özellikle "Sonic Pulse" modu) ortamdaki sesin ritmine göre tepki vermesini sağlamak için mikrofon izni ister. <strong>Önemli:</strong> Uygulama hiçbir şekilde ses kaydı yapmaz, ses verilerini saklamaz veya herhangi bir sunucuya iletmez. Analiz tamamen cihaz üzerinde anlık olarak yapılır.</p>
+                </div>
+
+                <ul>
+                    <li><strong>Ekran Görüntüsü ve Paylaşım:</strong> Simülasyonun ekran görüntüsünü paylaşmak istediğinizde, görüntü geçici olarak cihazın önbelleğinde (cache) saklanır. Paylaşım tamamlandıktan sonra bu veri üzerinde hiçbir işlem yapılmaz.</li>
+                    <li><strong>Haptik Geri Bildirim:</strong> Etkileşimi güçlendirmek amacıyla cihazın titreşim özelliği kullanılır.</li>
+                    <li><strong>Kişisel Veriler:</strong> Uygulamamız; isim, e-posta, konum veya cihaz ID'si gibi <u>hiçbir kişisel veriyi toplamaz</u>, işlemez ve paylaşmaz.</li>
+                </ul>
+            </section>
+
+            <section>
+                <h2>Üçüncü Taraf Paylaşımı</h2>
+                <p>Mindful Flow, reklam ağları veya analitik araçları dahil olmak üzere hiçbir üçüncü taraf servis ile veri paylaşımı yapmaz. Uygulama tamamen çevrimdışı öncelikli çalışacak şekilde tasarlanmıştır.</p>
+            </section>
+
+            <section>
+                <h2>Çocukların Gizliliği</h2>
+                <p>Uygulamamız herhangi bir kişisel veri toplamadığı için çocukların kullanımı için tamamen güvenlidir ve aile dostu bir deneyim sunar.</p>
+            </section>
+
+            <footer>
+                <p>Sorularınız veya geri bildirimleriniz için bizimle iletişime geçebilirsiniz.</p>
+                <a href="mailto:destek@mindfulflow.com" class="btn-contact">Bize E-posta Gönder</a>
+            </footer>
+        </main>
+    </div>
+
+    <script>
+        // Sayfa yüklendiğinde hafif bir giriş animasyonu
+        window.addEventListener('DOMContentLoaded', () => {
+            const card = document.querySelector('.card');
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'all 0.8s ease-out';
+            
+            setTimeout(() => {
+                card.style.opacity = '1';
+                card.style.transform = 'translateY(0)';
+            }, 100);
+        });
+    </script>
+</body>
+</html>
+"""
+
+with open("privacy_policy.html", "w", encoding="utf-8") as f:
+    f.write(html_content)
